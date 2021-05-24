@@ -31,11 +31,16 @@ def print_occurrences(occurrences):
 
 
 if __name__ == '__main__':
-    pi = get_pi('pi.txt')
-    while True:
-        print('Enter sequence to search for.')
-        target = sys.stdin.readline().strip()
-        try:
-            print_occurrences(find_in_pi(target, pi))
-        except ValueError:
-            print("Sequence must be numeric!")
+    try:
+        pi = get_pi('pi.txt')
+        while True:
+            print('Enter sequence to search for.')
+            target = sys.stdin.readline().strip()
+            if target == "exit":
+                break
+            try:
+                print_occurrences(find_in_pi(target, pi))
+            except ValueError:
+                sys.stderr.write("Sequence must be numeric!\n")
+    except IOError as e:
+        sys.stderr.write("Error reading file pi.txt: " + str(e) + "\n")
