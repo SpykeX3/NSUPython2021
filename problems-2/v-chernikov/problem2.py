@@ -33,7 +33,10 @@ def parse_dictionary(filename):
 
 if __name__ == '__main__':
     if len(sys.argv) != 2:
-        print("Error: no dictionary specified")
+        sys.stderr.write("Error: no dictionary specified\n")
     else:
-        dictionary = parse_dictionary(sys.argv[1])
-        pretty_print(inverse_dict(dictionary))
+        try:
+            dictionary = parse_dictionary(sys.argv[1])
+            pretty_print(inverse_dict(dictionary))
+        except IOError as e:
+            sys.stderr.write("Can't read file " + sys.argv[1] + ": " + str(e)+"\n")
