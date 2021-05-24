@@ -1,5 +1,8 @@
 #!/usr/bin/env python3
 
+import sys
+
+
 def cut_off(min_value, max_value, args):
     if max_value < min_value:
         raise ValueError("Invalid input, max_value is lower than min_value")
@@ -20,7 +23,8 @@ if __name__ == '__main__':
             try:
                 print(cut_off(nums[0], nums[1], nums[2:]))
             except ValueError as e:
-                print(e)
+                sys.stderr.write(str(e) + "\n")
                 print_help()
-    except ValueError:
+    except ValueError as e:
+        sys.stderr.write(str(e) + "\n")
         print_help()
