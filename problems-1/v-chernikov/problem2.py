@@ -24,11 +24,7 @@ if __name__ == '__main__':
             sys.stderr.write("Not enough arguments\n")
             print_help()
         else:
-            try:
-                print(cut_off(nums[0], nums[1], nums[2:]))
-            except ValueError as e:
-                sys.stderr.write(str(e) + "\n")
-                print_help()
+            print(cut_off(nums[0], nums[1], nums[2:]))
     except ValueError as e:
         sys.stderr.write(str(e) + "\n")
         print_help()
