@@ -32,11 +32,14 @@ def parse_dictionary(filename):
 
 
 if __name__ == '__main__':
-    if len(sys.argv) != 2:
+    if len(sys.argv) < 2:
         sys.stderr.write("Error: no dictionary specified\n")
+        exit(1)
+    if len(sys.argv) > 2:
+        sys.stderr.write("Error: too many arguments\n")
     else:
         try:
             dictionary = parse_dictionary(sys.argv[1])
             pretty_print(inverse_dict(dictionary))
         except IOError as e:
-            sys.stderr.write("Can't read file " + sys.argv[1] + ": " + str(e)+"\n")
+            sys.stderr.write("Can't read file " + sys.argv[1] + ": " + str(e) + "\n")
