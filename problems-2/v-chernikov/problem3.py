@@ -10,12 +10,20 @@ from argparse import ArgumentParser
 
 def get_files_tuples(path):
     files_dict = defaultdict(list)
-    for f in os.listdir(path):
-        filepath = p.join(path, f)
-        if p.isfile(p.join(path, f)):
-            files_dict[p.getsize(filepath)].append(f)
-        else:
-            files_dict[0].append(f)
+    dirlist = []
+    try:
+        dirlist = os.listdir(path)
+    except IOError as e:
+        raise IOError("Error listing directory " + path + ": " + str(e))
+    for f in dirlist:
+        try:
+            filepath = p.join(path, f)
+            if p.isfile(p.join(path, f)):
+                files_dict[p.getsize(filepath)].append(f)
+            else:
+                files_dict[0].append(f)
+        except IOError as e:
+            raise IOError("Error while processing file " + p.join(path, f) + ": " + str(e))
     result = []
     for k in sorted(files_dict.keys()):
         for f in files_dict[k]:
