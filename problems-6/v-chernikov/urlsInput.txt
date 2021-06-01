@@ -7,3 +7,12 @@ wwww.google.ru/  www.google.ru/page http://www.com  http://www.com/page http://w
 I used to love games at www.lego-site.com www.lego-site.co-m www.lego-site www.lego http:www https https:://lego.com http://lego
 Wow this url is so long! www.longurl.com.org.ucoz/this/path/is/very/very/very/very-very/long.html
 Okay, last link for today is this -http://link.link
+URL with port here www.i-have-a-port.com:8080
+This is my secret link http://top-secret.org:30/%33%f0
+This is my secret username http://username@top-secret.org:30/%33%f0
+This is my secret username and secure password http://u5%55rn4me:pa55w%0fRD@top-secret.org:30/%33%f0
+Try to find a link in this http://u5%55rn4me:pa55w%0fRD@top-secret.org:30/abc/100500sdfv/df%41%41%41 sentence
+
+No try some invalid urls!
+THis has no username https://:password@domain.region
+THis has no @ symbol https://username:passworddomain.region

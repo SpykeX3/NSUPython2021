@@ -17,7 +17,12 @@ expected = [
     'www.lego-site.com',
     'www.lego-site.co',
     'www.longurl.com.org.ucoz/this/path/is/very/very/very/very-very/long.html',
-    'http://link.link'
+    'http://link.link',
+    'www.i-have-a-port.com:8080',
+    'http://top-secret.org:30/%33%f0',
+    'http://username@top-secret.org:30/%33%f0',
+    'http://u5%55rn4me:pa55w%0fRD@top-secret.org:30/%33%f0',
+    'http://u5%55rn4me:pa55w%0fRD@top-secret.org:30/abc/100500sdfv/df%41%41%41'
 ]
 
 
