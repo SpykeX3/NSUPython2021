@@ -6,11 +6,11 @@ from argparse import ArgumentParser
 
 def create_translation_table(t_from, t_to):
     if len(t_from) != len(t_to):
-        raise ValueError("'from' length doesn't match 'to'")
+        raise ValueError("Can't create translation table: 'from' length doesn't match 'to'")
     result = {}
     for i, symbol in enumerate(t_from):
         if symbol in result:
-            raise ValueError("invalid 'from', trying to map symbol multiple times")
+            raise ValueError("Can't create translation table: invalid 'from', trying to map symbol multiple times")
         result[symbol] = t_to[i]
     return result
 
@@ -39,5 +39,7 @@ if __name__ == '__main__':
             while content:
                 sys.stdout.write(translate(table, to_delete, content))
                 content = file.read(4096)
-    except (OSError, ValueError) as e:
+    except ValueError as e:
         sys.stderr.write(str(e) + "\n")
+    except (OSError, IOError) as e:
+        sys.stderr.write("Can't read file " + args.file + ": " + str(e) + "\n")
